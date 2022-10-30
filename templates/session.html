@@ -35,7 +35,12 @@
       socket.on('response', function(response) {
         console.log(response)
         if(typeof response.message !== 'undefined') {
-          $('div.messageHolder').append('<div style="color: #'+response.red + response.green+ response.blue+ '">'+response.message+'</div>')
+          if (response.message === "Genshin") {
+            $('div.messageHolder').empty()
+          }
+          else {
+            $('div.messageHolder').append('<div style="color: #'+response.red + response.green+ response.blue+ '">'+response.message+'</div>')
+          }
         }
       })
     </script>
